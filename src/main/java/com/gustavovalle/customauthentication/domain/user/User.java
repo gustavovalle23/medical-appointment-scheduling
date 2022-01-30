@@ -5,6 +5,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+
+import com.gustavovalle.customauthentication.domain.address.Address;
+
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 
@@ -15,15 +19,31 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+    @NotNull(message = "Email is required!")
     private String email;
 
-    @NotNull
+    @NotNull(message = "Password is required!")
     private String password;
+
+    @NotNull(message = "Birth date is required!")
+    @Column(name = "birth_date")
+    private LocalDateTime birthDate;
 
     @NotNull
     @ManyToMany
     private List<Profile> profiles;
+
+    @NotNull(message = "Address is required!")
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Address address;
+
+    public LocalDateTime getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDateTime birthDate) {
+        this.birthDate = birthDate;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -86,5 +106,17 @@ public class User implements UserDetails {
 
     public void setProfiles(List<Profile> profiles) {
         this.profiles = profiles;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", birthDate=" + birthDate +
+                ", profiles=" + profiles +
+                ", address=" + address +
+                '}';
     }
 }
