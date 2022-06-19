@@ -1,9 +1,9 @@
-package com.gustavovalle.customauthentication.controller.user;
+package com.gustavovalle.medicalappointment.controller.user;
 
-import com.gustavovalle.customauthentication.service.security.AuthenticationService;
-import com.gustavovalle.customauthentication.service.security.TokenService;
-import com.gustavovalle.customauthentication.shared.JwtTokenDTO;
-import com.gustavovalle.customauthentication.shared.LoginForm;
+import com.gustavovalle.medicalappointment.service.security.AuthenticationService;
+import com.gustavovalle.medicalappointment.service.security.TokenService;
+import com.gustavovalle.medicalappointment.shared.JwtTokenDTO;
+import com.gustavovalle.medicalappointment.shared.LoginForm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;

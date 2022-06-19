@@ -1,4 +1,4 @@
-package com.gustavovalle.customauthentication.domain.user;
+package com.gustavovalle.medicalappointment.domain.user;
 
 import org.springframework.security.core.GrantedAuthority;
 

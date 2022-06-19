@@ -1,4 +1,4 @@
-package com.gustavovalle.customauthentication.shared;
+package com.gustavovalle.medicalappointment.shared;
 
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

@@ -1,6 +1,6 @@
-package com.gustavovalle.customauthentication.service.security;
+package com.gustavovalle.medicalappointment.service.security;
 
-import com.gustavovalle.customauthentication.domain.user.User;
+import com.gustavovalle.medicalappointment.domain.user.User;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;

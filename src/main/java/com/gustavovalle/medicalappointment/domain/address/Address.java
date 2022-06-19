@@ -1,4 +1,4 @@
-package com.gustavovalle.customauthentication.domain.address;
+package com.gustavovalle.medicalappointment.domain.address;
 
 import java.io.Serializable;
 

@@ -1,6 +1,6 @@
-package com.gustavovalle.customauthentication.repository.user;
+package com.gustavovalle.medicalappointment.repository.user;
 
-import com.gustavovalle.customauthentication.domain.user.User;
+import com.gustavovalle.medicalappointment.domain.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

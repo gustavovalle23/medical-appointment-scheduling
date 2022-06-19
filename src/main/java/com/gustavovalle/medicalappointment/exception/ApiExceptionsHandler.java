@@ -1,4 +1,4 @@
-package com.gustavovalle.customauthentication.exception;
+package com.gustavovalle.medicalappointment.exception;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

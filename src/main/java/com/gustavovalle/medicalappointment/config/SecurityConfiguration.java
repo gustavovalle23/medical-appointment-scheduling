@@ -1,6 +1,6 @@
-package com.gustavovalle.customauthentication.config;
+package com.gustavovalle.medicalappointment.config;
 
-import com.gustavovalle.customauthentication.service.security.AuthenticationService;
+import com.gustavovalle.medicalappointment.service.security.AuthenticationService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;

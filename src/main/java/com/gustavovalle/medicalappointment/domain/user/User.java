@@ -1,4 +1,4 @@
-package com.gustavovalle.customauthentication.domain.user;
+package com.gustavovalle.medicalappointment.domain.user;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-import com.gustavovalle.customauthentication.domain.address.Address;
+import com.gustavovalle.medicalappointment.domain.address.Address;
 
 import java.time.LocalDateTime;
 import java.util.Collection;

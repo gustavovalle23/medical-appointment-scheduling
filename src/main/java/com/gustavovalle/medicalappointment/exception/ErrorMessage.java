@@ -1,4 +1,4 @@
-package com.gustavovalle.customauthentication.exception;
+package com.gustavovalle.medicalappointment.exception;
 
 import java.util.Date;
 
