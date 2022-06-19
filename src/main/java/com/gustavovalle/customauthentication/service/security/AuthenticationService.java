@@ -1,6 +1,5 @@
 package com.gustavovalle.customauthentication.service.security;
 
-import com.gustavovalle.customauthentication.exception.GustavoValleException;
 import com.gustavovalle.customauthentication.repository.user.UserRepository;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -32,9 +31,9 @@ public class AuthenticationService implements UserDetailsService {
         try {
             return authenticationManager.authenticate(login);
         } catch (DisabledException e) {
-            throw new GustavoValleException("User Disabled");
+            throw new Exception("User Disabled");
         } catch (BadCredentialsException e) {
-            throw new GustavoValleException("Invalid Credentials");
+            throw new Exception("Invalid Credentials");
         }
     }
 
