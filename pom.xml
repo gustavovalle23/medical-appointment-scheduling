@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.gustavovalle</groupId>
-    <artifactId>custom-authentication</artifactId>
+    <artifactId>medical-appointment-scheduling</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>custom-authentication</name>
-    <description>custom-authentication</description>
+    <name>medical-appointment-scheduling</name>
+    <description>medical-appointment-scheduling</description>
     <properties>
         <java.version>11</java.version>
     </properties>
