@@ -1,4 +1,4 @@
-package com.gustavovalle.medicalappointment.repository.user;
+package com.gustavovalle.medicalappointment.infra.repo.user;
 
 import com.gustavovalle.medicalappointment.domain.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
