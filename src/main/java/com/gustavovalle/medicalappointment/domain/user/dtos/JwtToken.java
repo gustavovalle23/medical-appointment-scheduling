@@ -1,11 +1,11 @@
-package com.gustavovalle.medicalappointment.shared;
+package com.gustavovalle.medicalappointment.domain.user.dtos;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class JwtTokenDTO {
+public class JwtToken {
     private String token;
 
-    public JwtTokenDTO(String token) {
+    public JwtToken(String token) {
         this.token = token;
     }
 

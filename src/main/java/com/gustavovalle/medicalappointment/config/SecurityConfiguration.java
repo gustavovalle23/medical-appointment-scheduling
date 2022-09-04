@@ -1,4 +1,4 @@
-package com.gustavovalle.medicalappointment.infra.config;
+package com.gustavovalle.medicalappointment.config;
 
 import com.gustavovalle.medicalappointment.service.security.AuthenticationService;
 import org.springframework.context.annotation.Bean;

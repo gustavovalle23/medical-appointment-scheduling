@@ -1,11 +1,11 @@
-package com.gustavovalle.medicalappointment.shared;
+package com.gustavovalle.medicalappointment.domain.user.dtos;
 
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
 import javax.validation.constraints.NotNull;
 
-public class LoginForm {
+public class LoginUser {
     @NotNull(message = "Email is required")
     private String email;
 

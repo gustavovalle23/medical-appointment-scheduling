@@ -1,5 +1,6 @@
 package com.gustavovalle.medicalappointment.domain.user;
 
+import com.gustavovalle.medicalappointment.domain.user.dtos.UserDto;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -14,6 +15,16 @@ import java.util.List;
 
 @Entity
 public class User implements UserDetails {
+
+    public User(String email, String password, LocalDateTime birthDate, Address address) {
+        this.email = email;
+        this.password = password;
+        this.birthDate = birthDate;
+        this.address = address;
+    }
+
+    public User() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -118,5 +129,9 @@ public class User implements UserDetails {
                 ", profiles=" + profiles +
                 ", address=" + address +
                 '}';
+    }
+
+    public UserDto toDto() {
+        return new UserDto(this.id, this.email, this.password, this.birthDate);
     }
 }
