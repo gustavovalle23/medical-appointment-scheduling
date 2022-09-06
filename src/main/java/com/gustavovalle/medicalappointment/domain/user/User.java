@@ -7,7 +7,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-import com.gustavovalle.medicalappointment.domain.address.Address;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
@@ -16,11 +15,10 @@ import java.util.List;
 @Entity
 public class User implements UserDetails {
 
-    public User(String email, String password, LocalDateTime birthDate, Address address) {
+    public User(String email, String password, LocalDateTime birthDate) {
         this.email = email;
         this.password = password;
         this.birthDate = birthDate;
-        this.address = address;
     }
 
     public User() {
@@ -43,10 +41,6 @@ public class User implements UserDetails {
     @NotNull
     @ManyToMany
     private List<Profile> profiles;
-
-    @NotNull(message = "Address is required!")
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Address address;
 
     public LocalDateTime getBirthDate() {
         return birthDate;
@@ -127,7 +121,6 @@ public class User implements UserDetails {
                 ", password='" + password + '\'' +
                 ", birthDate=" + birthDate +
                 ", profiles=" + profiles +
-                ", address=" + address +
                 '}';
     }
 

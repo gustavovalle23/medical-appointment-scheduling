@@ -55,6 +55,7 @@ public class UserController {
 
     @PostMapping("/user/save")
     public ResponseEntity<UserDto> saveUser(@RequestBody @Valid SaveUser saveUser) throws Exception {
+        log.info("Request to save {}", saveUser);
         User user = user().build(saveUser);
         UserDto savedUser = userService.saveUser(user);
         return ResponseEntity.ok(savedUser);
