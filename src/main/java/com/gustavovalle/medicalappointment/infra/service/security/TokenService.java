@@ -1,6 +1,6 @@
-package com.gustavovalle.medicalappointment.service.security;
+package com.gustavovalle.medicalappointment.infra.service.security;
 
-import com.gustavovalle.medicalappointment.domain.user.User;
+import com.gustavovalle.medicalappointment.infra.entities.User;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;

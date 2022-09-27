@@ -1,4 +1,4 @@
-package com.gustavovalle.medicalappointment.domain.user.dtos;
+package com.gustavovalle.medicalappointment.domain.entities.user;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

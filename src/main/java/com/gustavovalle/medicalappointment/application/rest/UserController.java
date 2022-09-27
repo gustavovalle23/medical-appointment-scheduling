@@ -1,13 +1,13 @@
-package com.gustavovalle.medicalappointment.rest.user;
+package com.gustavovalle.medicalappointment.application.rest;
 
-import com.gustavovalle.medicalappointment.domain.user.User;
-import com.gustavovalle.medicalappointment.domain.user.dtos.SaveUser;
-import com.gustavovalle.medicalappointment.domain.user.dtos.LoginUser;
-import com.gustavovalle.medicalappointment.domain.user.dtos.UserDto;
-import com.gustavovalle.medicalappointment.service.security.AuthenticationService;
-import com.gustavovalle.medicalappointment.service.security.TokenService;
-import com.gustavovalle.medicalappointment.domain.user.dtos.JwtToken;
-import com.gustavovalle.medicalappointment.service.user.UserService;
+import com.gustavovalle.medicalappointment.domain.entities.user.CreateUser;
+import com.gustavovalle.medicalappointment.domain.entities.user.JwtToken;
+import com.gustavovalle.medicalappointment.domain.entities.user.LoginUser;
+import com.gustavovalle.medicalappointment.domain.entities.user.UserDto;
+import com.gustavovalle.medicalappointment.infra.entities.User;
+import com.gustavovalle.medicalappointment.infra.service.security.AuthenticationService;
+import com.gustavovalle.medicalappointment.infra.service.security.TokenService;
+import com.gustavovalle.medicalappointment.infra.service.user.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 
-import static com.gustavovalle.medicalappointment.shared.UserBuilder.user;
+import static com.gustavovalle.medicalappointment.infra.shared.UserBuilder.user;
+
 
 @RestController
 @RequestMapping("/api/v1")
@@ -54,9 +55,9 @@ public class UserController {
     }
 
     @PostMapping("/user/save")
-    public ResponseEntity<UserDto> saveUser(@RequestBody @Valid SaveUser saveUser) throws Exception {
-        log.info("Request to save {}", saveUser);
-        User user = user().build(saveUser);
+    public ResponseEntity<UserDto> saveUser(@RequestBody @Valid CreateUser createUser) throws Exception {
+        log.info("Request to save {}", createUser);
+        User user = user().build(createUser);
         UserDto savedUser = userService.saveUser(user);
         return ResponseEntity.ok(savedUser);
     }

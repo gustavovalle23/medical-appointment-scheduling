@@ -1,4 +1,4 @@
-package com.gustavovalle.medicalappointment.domain.user;
+package com.gustavovalle.medicalappointment.infra.entities;
 
 import org.springframework.security.core.GrantedAuthority;
 

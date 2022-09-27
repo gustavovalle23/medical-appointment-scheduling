@@ -1,18 +1,27 @@
-package com.gustavovalle.medicalappointment.domain.user.dtos;
+package com.gustavovalle.medicalappointment.domain.entities.user;
 
-import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
-public class SaveUser {
-
-    @NotNull(message = "Email is required")
+public class UserDto {
+    private Long id;
     private String email;
-
-    @NotNull(message = "Password is required")
     private String password;
-
-    @NotNull(message = "Birth date is required!")
     private LocalDateTime birthDate;
+
+    public UserDto(Long id, String email, String password, LocalDateTime birthDate) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
+        this.birthDate = birthDate;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getEmail() {
         return email;
@@ -37,6 +46,4 @@ public class SaveUser {
     public void setBirthDate(LocalDateTime birthDate) {
         this.birthDate = birthDate;
     }
-
-
 }

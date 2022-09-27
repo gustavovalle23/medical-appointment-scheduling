@@ -1,6 +1,6 @@
-package com.gustavovalle.medicalappointment.domain.user;
+package com.gustavovalle.medicalappointment.infra.entities;
 
-import com.gustavovalle.medicalappointment.domain.user.dtos.UserDto;
+import com.gustavovalle.medicalappointment.domain.entities.user.UserDto;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

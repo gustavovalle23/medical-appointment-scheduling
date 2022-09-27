@@ -1,6 +1,6 @@
-package com.gustavovalle.medicalappointment.repository;
+package com.gustavovalle.medicalappointment.domain.contracts.repository;
 
-import com.gustavovalle.medicalappointment.domain.user.User;
+import com.gustavovalle.medicalappointment.infra.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
