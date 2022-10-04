@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class UserTest {
 
     @Test
-    public void givenAValidParams_whenCallsUserBuilder_thenInstantiateUserDto() {
+    public void givenAValidParams_whenCallsUser_thenInstantiateUserDto() {
 
     }
 
