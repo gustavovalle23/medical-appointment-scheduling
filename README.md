@@ -1,13 +1,21 @@
 # Medical appointment scheduling system (Java, Spring-boot)
+
+## Use cases
+- [ ] User registration - Coverage (0%)
+- [ ] User Login - Coverage (0%)
+- [ ] User Update - Coverage (0%)
+- [ ] User Delete - Coverage (0%)
+
+
 Profiles:
-  - Doctor
+- Doctor
     - will have access to a list of all appointments that he has already performed and will perform (with date filter)
     - consultation history of the patient he searches
-  - Patient
+- Patient
     - Will have access to a list with the appointments that he has already performed and will perform
     - Access to the doctor's profile (how many consultations he has had, average grade given by patients, specialty, career time and Biography, written by the doctor himself)
     - Appointment scheduling from a medical record
-  - Manager
+- Manager
     - Access to medical consultations
     - Physician data as well as patients + average consultation time
     - patient complaints, with which doctor was consulted
