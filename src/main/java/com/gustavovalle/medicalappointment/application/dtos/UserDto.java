@@ -1,4 +1,4 @@
-package com.gustavovalle.medicalappointment.domain.entities.user;
+package com.gustavovalle.medicalappointment.application.dtos;
 
 import java.time.LocalDateTime;
 

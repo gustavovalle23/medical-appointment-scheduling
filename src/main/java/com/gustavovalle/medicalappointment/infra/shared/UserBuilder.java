@@ -1,8 +1,8 @@
 package com.gustavovalle.medicalappointment.infra.shared;
 
-import com.gustavovalle.medicalappointment.domain.entities.user.CreateUser;
-import com.gustavovalle.medicalappointment.domain.entities.user.UserDto;
-import com.gustavovalle.medicalappointment.infra.entities.User;
+import com.gustavovalle.medicalappointment.application.dtos.CreateUser;
+import com.gustavovalle.medicalappointment.application.dtos.UserDto;
+import com.gustavovalle.medicalappointment.infra.models.User;
 
 public final class UserBuilder {
     private static User user;
