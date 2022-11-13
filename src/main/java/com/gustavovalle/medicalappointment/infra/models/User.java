@@ -13,7 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
 
-
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
@@ -21,116 +20,124 @@ import java.util.List;
 @Entity(name = "users")
 public class User implements UserDetails {
 
-    public User(String email, String password, LocalDateTime birthDate) {
-        this.email = email;
-        this.password = password;
-        this.birthDate = birthDate;
-    }
+	public User(String name, String email, String password, LocalDateTime birthDate) {
+		this.name = name;
+		this.email = email;
+		this.password = password;
+		this.birthDate = birthDate;
+	}
 
-    public User() {
-    }
+	public User() {
+	}
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @NotNull(message = "Email is required!")
-    private String email;
+	@NotNull(message = "Name is required!")
+	private String name;
 
-    @NotNull(message = "Password is required!")
-    private String password;
+	@NotNull(message = "Email is required!")
+	private String email;
 
-    @NotNull(message = "Birth date is required!")
-    @Column(name = "birth_date")
-    private LocalDateTime birthDate;
+	@NotNull(message = "Password is required!")
+	private String password;
 
-    @NotNull
-    @ManyToMany
-    private List<Profile> profiles;
+	@NotNull(message = "Birth date is required!")
+	@Column(name = "birth_date")
+	private LocalDateTime birthDate;
 
-    public LocalDateTime getBirthDate() {
-        return birthDate;
-    }
+	@NotNull
+	@ManyToMany
+	private List<Profile> profiles;
 
-    public void setBirthDate(LocalDateTime birthDate) {
-        this.birthDate = birthDate;
-    }
+	public LocalDateTime getBirthDate() {
+		return birthDate;
+	}
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return profiles;
-    }
+	public void setBirthDate(LocalDateTime birthDate) {
+		this.birthDate = birthDate;
+	}
 
-    @Override
-    public String getPassword() {
-        return password;
-    }
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return profiles;
+	}
 
-    @Override
-    public String getUsername() {
-        return email;
-    }
+	@Override
+	public String getPassword() {
+		return password;
+	}
 
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
+	public String getName() {
+		return name;
+	}
 
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
+	@Override
+	public String getUsername() {
+		return email;
+	}
 
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	@Override
+	public boolean isEnabled() {
+		return true;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public List<Profile> getProfiles() {
-        return profiles;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setProfiles(List<Profile> profiles) {
-        this.profiles = profiles;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", birthDate=" + birthDate +
-                ", profiles=" + profiles +
-                '}';
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public UserDto toDto() {
-        return new UserDto(this.id, this.email, this.password, this.birthDate);
-    }
+	public List<Profile> getProfiles() {
+		return profiles;
+	}
+
+	public void setProfiles(List<Profile> profiles) {
+		this.profiles = profiles;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", email=" + email + ", birthDate=" + birthDate + ", profiles="
+				+ profiles + "]";
+	}
+
+	public UserDto toDto() {
+		return new UserDto(this.id, this.name, this.email, this.password, this.birthDate);
+	}
+
 }

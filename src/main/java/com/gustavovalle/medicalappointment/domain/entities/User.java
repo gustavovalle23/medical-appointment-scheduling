@@ -5,7 +5,6 @@ import java.time.Instant;
 import com.gustavovalle.medicalappointment.domain.AggregateRoot;
 import com.gustavovalle.medicalappointment.domain.validation.ValidationHandler;
 
-
 public class User extends AggregateRoot<UserID> {
 	private String name;
 	private String email;
@@ -29,11 +28,11 @@ public class User extends AggregateRoot<UserID> {
 		this.deletedAt = deletedAt;
 	}
 
-	public static User newUser(final String name, final String email, final String password, final Instant birthDate, final Boolean isActive) {
-		final UserID id = UserID.unique();
+	public static User newUser(final Long id, final String name, final String email, final String password,
+			final Instant birthDate, final Boolean isActive) {
 		final Instant now = Instant.now();
-        final Instant deletedAt = isActive ? null : now;
-		return new User(id, name, email, password, birthDate, isActive, now, now, deletedAt);
+		final Instant deletedAt = isActive ? null : now;
+		return new User(new UserID(id), name, email, password, birthDate, isActive, now, now, deletedAt);
 	}
 
 	@Override

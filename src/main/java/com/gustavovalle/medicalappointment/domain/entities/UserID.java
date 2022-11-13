@@ -1,29 +1,20 @@
 package com.gustavovalle.medicalappointment.domain.entities;
 
 import java.util.Objects;
-import java.util.UUID;
 
 import com.gustavovalle.medicalappointment.domain.Identifier;
 
 
 public class UserID extends Identifier {
-	private final String value;
+	private final Long value;
 
-	public UserID(final String value) {
+	public UserID(final Long value) {
 		Objects.requireNonNull(value);
 		this.value = value;
 	}
 
-	public static UserID unique() {
-		return UserID.from(UUID.randomUUID());
-	}
-
-	public static UserID from(final UUID anId) {
-		return new UserID(anId.toString().toLowerCase());
-	}
-
 	@Override
-	public String getValue() {
+	public Long getValue() {
 		return value;
 	}
 
