@@ -5,7 +5,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.gustavovalle.medicalappointment.application.dtos.UserDto;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
 
 
@@ -13,7 +18,7 @@ import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 
-@Entity
+@Entity(name = "users")
 public class User implements UserDetails {
 
     public User(String email, String password, LocalDateTime birthDate) {
