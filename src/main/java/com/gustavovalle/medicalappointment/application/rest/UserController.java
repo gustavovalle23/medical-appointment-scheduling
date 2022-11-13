@@ -1,9 +1,9 @@
 package com.gustavovalle.medicalappointment.application.rest;
 
-import com.gustavovalle.medicalappointment.domain.entities.user.CreateUser;
-import com.gustavovalle.medicalappointment.domain.entities.user.JwtToken;
-import com.gustavovalle.medicalappointment.domain.entities.user.LoginUser;
-import com.gustavovalle.medicalappointment.domain.entities.user.UserDto;
+import com.gustavovalle.medicalappointment.application.dtos.CreateUser;
+import com.gustavovalle.medicalappointment.application.dtos.JwtToken;
+import com.gustavovalle.medicalappointment.application.dtos.LoginUser;
+import com.gustavovalle.medicalappointment.application.dtos.UserDto;
 import com.gustavovalle.medicalappointment.infra.models.User;
 import com.gustavovalle.medicalappointment.infra.service.security.AuthenticationService;
 import com.gustavovalle.medicalappointment.infra.service.security.TokenService;
