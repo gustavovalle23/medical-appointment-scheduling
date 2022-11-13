@@ -1,7 +1,7 @@
 package com.gustavovalle.medicalappointment.infra.service.user;
 
 import com.gustavovalle.medicalappointment.domain.entities.user.UserDto;
-import com.gustavovalle.medicalappointment.infra.entities.User;
+import com.gustavovalle.medicalappointment.infra.models.User;
 import com.gustavovalle.medicalappointment.domain.contracts.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
