@@ -1,18 +1,17 @@
 version: '3.7'
 
 services:
-  mysql:
-    container_name: medical_appointment_mysql
-    image: mysql:latest
+  postgresql:
+    container_name: medical-appointment-postgres
+    image: postgres
     environment:
-      - MYSQL_ROOT_PASSWORD=123456
-      - MYSQL_DATABASE=medical_appointment
-    security_opt:
-      - seccomp:unconfined
+      - POSTGRES_DB=medicalappointment
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
     ports:
-      - 3306:3306
+      - "5432:5432"
     networks:
-      - medical_appointment_network
+      - medical-appointment-network
 
 networks:
-  medical_appointment_network:
+  medical-appointment-network:
