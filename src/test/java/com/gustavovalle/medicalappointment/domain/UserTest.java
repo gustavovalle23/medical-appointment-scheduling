@@ -38,7 +38,7 @@ public class UserTest {
 	@Test
 	public void givenAnInvalidEmailParam_whenCallNewUser_thenShouldReceiveError() {
 		final String name = "Test Name User";
-		final String email = "";
+		final String email = "emailinvalido@gmail.c";
 		final String password = "fakepassword";
 		final Instant birthDate = Instant.now();
 		final Boolean isActive = true;
