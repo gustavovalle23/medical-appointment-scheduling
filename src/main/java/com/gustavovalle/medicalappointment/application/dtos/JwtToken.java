@@ -3,18 +3,18 @@ package com.gustavovalle.medicalappointment.application.dtos;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class JwtToken {
-    private String token;
+	private String token;
 
-    public JwtToken(String token) {
-        this.token = token;
-    }
+	public JwtToken(String token) {
+		this.token = token;
+	}
 
-    @JsonProperty("token")
-    public String getToken() {
-        return token;
-    }
+	@JsonProperty("token")
+	public String getToken() {
+		return token;
+	}
 
-    public void setToken(String token) {
-        this.token = token;
-    }
+	public void setToken(String token) {
+		this.token = token;
+	}
 }
