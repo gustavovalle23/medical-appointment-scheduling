@@ -1,19 +1,19 @@
 package com.gustavovalle.medicalappointment.infra.service.user;
 
 import com.gustavovalle.medicalappointment.infra.models.User;
-import com.gustavovalle.medicalappointment.infra.repositories.UserRepository;
+import com.gustavovalle.medicalappointment.infra.repositories.UserRepositoryJpa;
 import com.gustavovalle.medicalappointment.usecases.dtos.UserDto;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
-    private final UserRepository userRepository;
+    private final UserRepositoryJpa userRepositoryJpa;
 
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public UserService(UserRepositoryJpa userRepositoryJpa) {
+        this.userRepositoryJpa = userRepositoryJpa;
     }
 
     public UserDto saveUser(User newUser) {
-        return userRepository.save(newUser).toDto();
+        return userRepositoryJpa.save(newUser).toDto();
     }
 }

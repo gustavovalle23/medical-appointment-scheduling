@@ -13,7 +13,7 @@ public class CreateUserUseCaseTest {
     @Test
     void givenAValidCommand_whenCallCreateUserUseCase_thenInstantiateANewUser() {
         final CreateUserUseCase useCase = new CreateUserUseCase(null);
-        final CreateUserCommand command = new CreateUserCommand();
+        final CreateUserCommand command = new CreateUserCommand(name, email, password, birthDate);
         CreateUserOutput output = useCase.execute(command);
     }
 }

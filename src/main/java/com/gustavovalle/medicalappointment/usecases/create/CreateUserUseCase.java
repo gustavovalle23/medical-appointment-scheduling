@@ -1,7 +1,10 @@
 package com.gustavovalle.medicalappointment.usecases.create;
 
-import com.gustavovalle.medicalappointment.infra.repositories.UserRepository;
+import com.gustavovalle.medicalappointment.domain.contracts.repository.UserRepository;
+import com.gustavovalle.medicalappointment.domain.entities.User;
 import com.gustavovalle.medicalappointment.seedwork.UseCase;
+
+import java.util.Optional;
 
 public class CreateUserUseCase implements UseCase<CreateUserCommand, CreateUserOutput> {
     UserRepository userRepository;
@@ -10,7 +13,9 @@ public class CreateUserUseCase implements UseCase<CreateUserCommand, CreateUserO
     }
 
     @Override
-    public CreateUserOutput execute(CreateUserCommand anIn) {
-        return null;
+    public CreateUserOutput execute(CreateUserCommand command) {
+        User user = User.newUser(Long.parseLong("123"), command.getName(), command.getEmail(), command.getPassword(), command.getBirthDate(), true);
+        Optional<User> savedUser = this.userRepository.save(user);
+        return savedUser.map(value -> CreateUserOutput.with(value.getName())).orElse(null);
     }
 }
