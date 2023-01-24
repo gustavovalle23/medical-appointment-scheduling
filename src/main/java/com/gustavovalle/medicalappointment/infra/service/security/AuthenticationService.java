@@ -1,6 +1,7 @@
 package com.gustavovalle.medicalappointment.infra.service.security;
 
 import com.gustavovalle.medicalappointment.domain.contracts.repository.UserRepository;
+
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;

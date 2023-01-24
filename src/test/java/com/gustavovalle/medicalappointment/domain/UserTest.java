@@ -51,6 +51,6 @@ public class UserTest {
 				() -> user.validate(new ThrowsValidationHandler()));
 
 		Assertions.assertEquals(1, actualException.getErrors().size());
-		Assertions.assertEquals("Should be a valid e-mail!", actualException.getErrors().get(0).message());
+		Assertions.assertEquals("Should be a valid e-mail!", actualException.getErrors().get(0).getMessage());
 	}
 }
