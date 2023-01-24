@@ -1,4 +1,4 @@
-package com.gustavovalle.medicalappointment.application.dtos;
+package com.gustavovalle.medicalappointment.usecases.dtos;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

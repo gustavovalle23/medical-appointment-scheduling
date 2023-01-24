@@ -1,7 +1,7 @@
-package com.gustavovalle.medicalappointment.infra.shared;
+package com.gustavovalle.medicalappointment.infra.builders;
 
-import com.gustavovalle.medicalappointment.application.dtos.CreateUser;
-import com.gustavovalle.medicalappointment.application.dtos.UserDto;
+import com.gustavovalle.medicalappointment.usecases.dtos.CreateUser;
+import com.gustavovalle.medicalappointment.usecases.dtos.UserDto;
 import com.gustavovalle.medicalappointment.infra.models.User;
 
 public final class UserBuilder {

@@ -7,11 +7,11 @@ import com.gustavovalle.medicalappointment.domain.validation.ValidationHandler;
 
 public class User extends AggregateRoot<UserID> {
 	private String name;
-	private String email;
-	private String password;
-	private Instant birthDate;
+	private final String email;
+	private final String password;
+	private final Instant birthDate;
 	private boolean active;
-	private Instant createdAt;
+	private final Instant createdAt;
 	private Instant updatedAt;
 	private Instant deletedAt;
 

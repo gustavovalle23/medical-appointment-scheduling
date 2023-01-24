@@ -3,7 +3,7 @@ package com.gustavovalle.medicalappointment.infra.models;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.gustavovalle.medicalappointment.application.dtos.UserDto;
+import com.gustavovalle.medicalappointment.usecases.dtos.UserDto;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

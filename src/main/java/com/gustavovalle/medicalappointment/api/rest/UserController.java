@@ -1,4 +1,4 @@
-package com.gustavovalle.medicalappointment.application.rest;
+package com.gustavovalle.medicalappointment.api.rest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gustavovalle.medicalappointment.application.dtos.CreateUser;
-import com.gustavovalle.medicalappointment.application.dtos.JwtToken;
-import com.gustavovalle.medicalappointment.application.dtos.LoginUser;
-import com.gustavovalle.medicalappointment.application.dtos.UserDto;
+import com.gustavovalle.medicalappointment.usecases.dtos.CreateUser;
+import com.gustavovalle.medicalappointment.usecases.dtos.JwtToken;
+import com.gustavovalle.medicalappointment.usecases.dtos.LoginUser;
+import com.gustavovalle.medicalappointment.usecases.dtos.UserDto;
 import com.gustavovalle.medicalappointment.infra.models.User;
 import com.gustavovalle.medicalappointment.infra.service.security.AuthenticationService;
 import com.gustavovalle.medicalappointment.infra.service.security.TokenService;
@@ -22,7 +22,7 @@ import com.gustavovalle.medicalappointment.infra.service.user.UserService;
 
 import javax.validation.Valid;
 
-import static com.gustavovalle.medicalappointment.infra.shared.UserBuilder.user;
+import static com.gustavovalle.medicalappointment.infra.builders.UserBuilder.user;
 
 @RestController
 @RequestMapping("/api/v1")

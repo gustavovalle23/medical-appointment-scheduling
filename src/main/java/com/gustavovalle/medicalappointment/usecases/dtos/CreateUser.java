@@ -1,15 +1,18 @@
-package com.gustavovalle.medicalappointment.application.dtos;
-
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+package com.gustavovalle.medicalappointment.usecases.dtos;
 
 import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 
-public class LoginUser {
+public class CreateUser {
+
 	@NotNull(message = "Email is required")
 	private String email;
 
 	@NotNull(message = "Password is required")
 	private String password;
+
+	@NotNull(message = "Birth date is required!")
+	private LocalDateTime birthDate;
 
 	public String getEmail() {
 		return email;
@@ -27,7 +30,12 @@ public class LoginUser {
 		this.password = password;
 	}
 
-	public UsernamePasswordAuthenticationToken convert() {
-		return new UsernamePasswordAuthenticationToken(email, password);
+	public LocalDateTime getBirthDate() {
+		return birthDate;
 	}
+
+	public void setBirthDate(LocalDateTime birthDate) {
+		this.birthDate = birthDate;
+	}
+
 }
