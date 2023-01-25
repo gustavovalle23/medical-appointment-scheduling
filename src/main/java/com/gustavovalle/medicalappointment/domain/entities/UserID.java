@@ -22,7 +22,7 @@ public class UserID extends Identifier {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((value == null) ? 0 : value.hashCode());
+		result = prime * result + value.hashCode();
 		return result;
 	}
 
@@ -35,10 +35,7 @@ public class UserID extends Identifier {
 		if (getClass() != obj.getClass())
 			return false;
 		UserID other = (UserID) obj;
-		if (value == null) {
-			if (other.value != null)
-				return false;
-		} else if (!value.equals(other.value))
+		if (!value.equals(other.value))
 			return false;
 		return true;
 	}

@@ -14,7 +14,7 @@ public class CreateUserUseCase implements UseCase<CreateUserCommand, CreateUserO
 
     @Override
     public CreateUserOutput execute(CreateUserCommand command) {
-        User user = User.newUser(Long.parseLong("123"), command.getName(), command.getEmail(), command.getPassword(), command.getBirthDate(), true);
+        User user = User.newUser(command.getName(), command.getEmail(), command.getPassword(), command.getBirthDate(), true);
         Optional<User> savedUser = this.userRepository.save(user);
         return savedUser.map(value -> CreateUserOutput.with(value.getName())).orElse(null);
     }
