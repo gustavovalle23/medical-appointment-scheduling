@@ -1,7 +1,7 @@
 package com.gustavovalle.medicalappointment.infra.service.security;
 
-import com.gustavovalle.medicalappointment.domain.contracts.repository.UserRepository;
 
+import com.gustavovalle.medicalappointment.infra.repositories.UserRepositoryJpa;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
@@ -16,9 +16,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class AuthenticationService implements UserDetailsService {
 
-    private final UserRepository userRepository;
+    private final UserRepositoryJpa userRepository;
 
-    public AuthenticationService(UserRepository userRepository) {
+    public AuthenticationService(UserRepositoryJpa userRepository) {
         this.userRepository = userRepository;
     }
 

@@ -2,6 +2,7 @@ package com.gustavovalle.medicalappointment.domain;
 
 import java.time.Instant;
 
+import com.gustavovalle.medicalappointment.domain.entities.UserID;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,14 +16,14 @@ public class UserTest {
 
 	@Test
 	public void givenAValidParams_whenCallNewUser_thenInstantiateAnUser() {
-		final Long id = Long.parseLong("1");
+		final UserID id = new UserID(Long.parseLong("1"));
 		final String name = "Test Name User";
 		final String email = "test@example";
 		final String password = "fakepassword";
 		final Instant birthDate = Instant.now();
 		final Boolean isActive = true;
 
-		final User user = User.newUser(id, name, email, password, birthDate, isActive);
+		final User user = User.newUserWithId(id, name, email, password, birthDate, isActive);
 
 		Assertions.assertNotNull(user);
 		Assertions.assertEquals(user.getName(), name);
@@ -38,14 +39,14 @@ public class UserTest {
 
 	@Test
 	public void givenAnInvalidEmailParam_whenCallNewUser_thenShouldReceiveError() {
-		final Long id = Long.parseLong("1");
+		final UserID id = new UserID(Long.parseLong("1"));
 		final String name = "Test Name User";
 		final String email = "emailinvalido@gmail.c";
 		final String password = "fakepassword";
 		final Instant birthDate = Instant.now();
 		final Boolean isActive = true;
 
-		final User user = User.newUser(id, name, email, password, birthDate, isActive);
+		final User user = User.newUserWithId(id, name, email, password, birthDate, isActive);
 
 		final DomainException actualException = Assertions.assertThrows(DomainException.class,
 				() -> user.validate(new ThrowsValidationHandler()));

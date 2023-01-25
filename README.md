@@ -1,7 +1,7 @@
 # Medical appointment scheduling system (Java, Spring-boot)
 
 ## Use cases
-- [ ] User registration - Coverage (0%)
+- [ ] User registration - Coverage (20%)
 - [ ] User Login - Coverage (0%)
 - [ ] User Update - Coverage (0%)
 - [ ] User Delete - Coverage (0%)
