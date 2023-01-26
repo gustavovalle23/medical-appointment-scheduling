@@ -7,8 +7,7 @@ public class CreateUserOutput {
         this.name = name;
     }
 
-
-    static CreateUserOutput with(String name) {
+    public static CreateUserOutput with(String name) {
         return new CreateUserOutput(name);
     }
 
