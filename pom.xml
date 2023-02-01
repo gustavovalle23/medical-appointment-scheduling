@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.gustavovalle</groupId>
-    <artifactId>medical-appointment-scheduling</artifactId>
+    <artifactId>restaurant</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>medical-appointment-scheduling</name>
-    <description>medical-appointment-scheduling</description>
+    <name>restaurant</name>
+    <description>restaurant</description>
     <properties>
         <java.version>11</java.version>
     </properties>

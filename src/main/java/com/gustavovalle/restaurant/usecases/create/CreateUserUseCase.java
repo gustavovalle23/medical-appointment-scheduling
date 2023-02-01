@@ -1,0 +1,21 @@
+package com.gustavovalle.restaurant.usecases.create;
+
+import com.gustavovalle.restaurant.domain.contracts.repository.UserRepository;
+import com.gustavovalle.restaurant.domain.entities.User;
+import com.gustavovalle.restaurant.seedwork.UseCase;
+
+import java.util.Optional;
+
+public class CreateUserUseCase implements UseCase<CreateUserCommand, CreateUserOutput> {
+    UserRepository userRepository;
+    public CreateUserUseCase(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @Override
+    public CreateUserOutput execute(CreateUserCommand command) {
+        User user = User.newUser(command.getName(), command.getEmail(), command.getPassword(), command.getBirthDate(), true);
+        Optional<User> savedUser = this.userRepository.save(user);
+        return savedUser.map(value -> CreateUserOutput.with(value.getName())).orElse(null);
+    }
+}
