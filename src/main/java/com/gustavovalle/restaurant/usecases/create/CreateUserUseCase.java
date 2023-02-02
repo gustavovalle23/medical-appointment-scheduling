@@ -13,8 +13,13 @@ public class CreateUserUseCase implements UseCase<CreateUserCommand, CreateUserO
     }
 
     @Override
-    public CreateUserOutput execute(CreateUserCommand command) {
+    public CreateUserOutput execute(CreateUserCommand command) throws Exception {
         User user = User.newUser(command.getName(), command.getEmail(), command.getPassword(), command.getBirthDate(), true);
+
+        if (userRepository.findByEmail(user.getEmail()).isPresent()) {
+            throw new Exception("User Already Registered");
+        }
+
         Optional<User> savedUser = this.userRepository.save(user);
         return savedUser.map(value -> CreateUserOutput.with(value.getName())).orElse(null);
     }

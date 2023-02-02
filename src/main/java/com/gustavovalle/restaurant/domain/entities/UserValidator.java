@@ -10,7 +10,6 @@ import com.gustavovalle.restaurant.domain.validation.Validator;
 public class UserValidator extends Validator {
 
 	private final User user;
-	private final String regexEmail = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
 
 	protected UserValidator(final User user, ValidationHandler handler) {
 		super(handler);
@@ -19,6 +18,7 @@ public class UserValidator extends Validator {
 
 	@Override
 	public void validate() {
+		String regexEmail = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
 		Pattern pattern = Pattern.compile(regexEmail);
 		Matcher matcher = pattern.matcher(this.user.getEmail());
 
