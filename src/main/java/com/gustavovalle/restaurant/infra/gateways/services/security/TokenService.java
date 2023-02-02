@@ -1,4 +1,4 @@
-package com.gustavovalle.restaurant.infra.service.security;
+package com.gustavovalle.restaurant.infra.gateways.services.security;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

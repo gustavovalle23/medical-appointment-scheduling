@@ -1,7 +1,7 @@
-package com.gustavovalle.restaurant.infra.service.security;
+package com.gustavovalle.restaurant.infra.gateways.services.security;
 
 
-import com.gustavovalle.restaurant.infra.repositories.UserRepositoryJpa;
+import com.gustavovalle.restaurant.infra.gateways.repositories.UserRepositoryJpa;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;

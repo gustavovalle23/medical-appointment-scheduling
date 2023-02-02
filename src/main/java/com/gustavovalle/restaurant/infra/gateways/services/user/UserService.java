@@ -1,7 +1,7 @@
-package com.gustavovalle.restaurant.infra.service.user;
+package com.gustavovalle.restaurant.infra.gateways.services.user;
 
 import com.gustavovalle.restaurant.infra.models.User;
-import com.gustavovalle.restaurant.infra.repositories.UserRepositoryJpa;
+import com.gustavovalle.restaurant.infra.gateways.repositories.UserRepositoryJpa;
 import com.gustavovalle.restaurant.usecases.dtos.UserDto;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.gustavovalle.restaurant.infra.repositories;
+package com.gustavovalle.restaurant.infra.gateways.repositories;
 
 import com.gustavovalle.restaurant.infra.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;

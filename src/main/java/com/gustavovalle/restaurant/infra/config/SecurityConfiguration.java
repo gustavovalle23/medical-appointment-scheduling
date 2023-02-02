@@ -1,6 +1,6 @@
 package com.gustavovalle.restaurant.infra.config;
 
-import com.gustavovalle.restaurant.infra.service.security.AuthenticationService;
+import com.gustavovalle.restaurant.infra.gateways.services.security.AuthenticationService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;

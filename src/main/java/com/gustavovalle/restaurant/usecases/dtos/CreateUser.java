@@ -1,9 +1,11 @@
 package com.gustavovalle.restaurant.usecases.dtos;
 
 import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 public class CreateUser {
+	@NotNull(message = "Name is required")
+	private String name;
 
 	@NotNull(message = "Email is required")
 	private String email;
@@ -12,7 +14,7 @@ public class CreateUser {
 	private String password;
 
 	@NotNull(message = "Birth date is required!")
-	private LocalDateTime birthDate;
+	private Instant birthDate;
 
 	public String getEmail() {
 		return email;
@@ -30,12 +32,29 @@ public class CreateUser {
 		this.password = password;
 	}
 
-	public LocalDateTime getBirthDate() {
+	public Instant getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(LocalDateTime birthDate) {
+	public void setBirthDate(Instant birthDate) {
 		this.birthDate = birthDate;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "CreateUser{" +
+				"name='" + name + '\'' +
+				", email='" + email + '\'' +
+				", password='" + password + '\'' +
+				", birthDate=" + birthDate +
+				'}';
+	}
 }

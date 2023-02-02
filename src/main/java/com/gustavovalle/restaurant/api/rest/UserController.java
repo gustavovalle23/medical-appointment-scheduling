@@ -1,5 +1,8 @@
 package com.gustavovalle.restaurant.api.rest;
 
+import com.gustavovalle.restaurant.usecases.create.CreateUserCommand;
+import com.gustavovalle.restaurant.usecases.create.CreateUserOutput;
+import com.gustavovalle.restaurant.usecases.create.CreateUserUseCase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -14,15 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.gustavovalle.restaurant.usecases.dtos.CreateUser;
 import com.gustavovalle.restaurant.usecases.dtos.JwtToken;
 import com.gustavovalle.restaurant.usecases.dtos.LoginUser;
-import com.gustavovalle.restaurant.usecases.dtos.UserDto;
-import com.gustavovalle.restaurant.infra.models.User;
-import com.gustavovalle.restaurant.infra.service.security.AuthenticationService;
-import com.gustavovalle.restaurant.infra.service.security.TokenService;
-import com.gustavovalle.restaurant.infra.service.user.UserService;
+import com.gustavovalle.restaurant.infra.gateways.services.security.AuthenticationService;
+import com.gustavovalle.restaurant.infra.gateways.services.security.TokenService;
 
 import javax.validation.Valid;
-
-import static com.gustavovalle.restaurant.infra.builders.UserBuilder.user;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -30,18 +28,17 @@ public class UserController {
 
 	private final AuthenticationManager authenticationManager;
 	private final TokenService tokenService;
-	private final UserService userService;
+	private final CreateUserUseCase createUserUseCase;
 	private final AuthenticationService authenticationService;
 
 	Logger log = LoggerFactory.getLogger(UserController.class);
 
 	public UserController(AuthenticationManager authenticationManager,
-			TokenService tokenService,
-			UserService userService,
-			AuthenticationService authenticationService) {
+						  TokenService tokenService,
+						  CreateUserUseCase createUserUseCase, AuthenticationService authenticationService) {
 		this.authenticationManager = authenticationManager;
 		this.tokenService = tokenService;
-		this.userService = userService;
+		this.createUserUseCase = createUserUseCase;
 		this.authenticationService = authenticationService;
 	}
 
@@ -55,10 +52,10 @@ public class UserController {
 	}
 
 	@PostMapping("/user/save")
-	public ResponseEntity<UserDto> saveUser(@RequestBody @Valid CreateUser createUser) {
-		log.info("Request to save {}", createUser);
-		User user = user().build(createUser);
-		UserDto savedUser = userService.saveUser(user);
-		return ResponseEntity.ok(savedUser);
+	public ResponseEntity<CreateUserOutput> saveUser(@RequestBody @Valid CreateUser input) throws Exception {
+		log.info("Request to save user with input: {}", input);
+		CreateUserCommand command = new CreateUserCommand(input.getName(), input.getEmail(), input.getPassword(), input.getBirthDate());
+		CreateUserOutput output = createUserUseCase.execute(command);
+		return ResponseEntity.ok(output);
 	}
 }
