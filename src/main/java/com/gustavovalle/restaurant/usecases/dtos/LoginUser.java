@@ -23,8 +23,13 @@ public class LoginUser {
 		return password;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+
+	@Override
+	public String toString() {
+		return "LoginUser{" +
+				"email='" + email + '\'' +
+				", password='" + password + '\'' +
+				'}';
 	}
 
 	public UsernamePasswordAuthenticationToken convert() {

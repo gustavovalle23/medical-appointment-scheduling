@@ -26,6 +26,11 @@ import java.util.Optional;
 
 @DisplayName("Create User Use Case Unit Tests")
 public class CreateUserUseCaseTest {
+    final Long id = Long.parseLong("0");
+    final String name = "Test Name";
+    final String email = "Test Email";
+    final String password = "Test Password";
+    final LocalDate birthDate = LocalDate.now();
 
     @InjectMocks
     private CreateUserUseCase useCase;
@@ -37,11 +42,6 @@ public class CreateUserUseCaseTest {
     @Test
     @ExtendWith(MockitoExtension.class)
     void givenAValidCommand_whenCallCreateUserUseCase_thenInstantiateANewUser() throws Exception {
-        final Long id = Long.parseLong("0");
-        final String name = "Test Name";
-        final String email = "Test Name";
-        final String password = "Test Name";
-        final LocalDate birthDate = LocalDate.now();
 
         when(userRepository.save(any())).thenAnswer(returnsFirstArg());
 
@@ -55,14 +55,14 @@ public class CreateUserUseCaseTest {
 
     @Test
     @ExtendWith(MockitoExtension.class)
-    void givenADuplicatedEmail_whenCallCreateUserUseCase_thenThrowAnError() throws Exception {
-        User user = User.newUserWithId(new UserID(Long.parseLong("123")), "name", "email", "password", LocalDate.now(), true);
+    void givenADuplicatedEmail_whenCallCreateUserUseCase_thenThrowAnError() {
+        User user = User.newUserWithId(new UserID(id), name, email, password, birthDate, true);
 
         when(userRepository.findByEmail(any())).thenReturn(Optional.of(user));
 
-        final CreateUserCommand command = new CreateUserCommand("name", "email", "password", LocalDate.now());
+        final CreateUserCommand command = new CreateUserCommand(name, email, password, birthDate);
 
         Exception error = assertThrows(Exception.class, () -> useCase.execute(command));
-        assertEquals(error.getMessage(), "User Already Registered");
+        assertEquals(error.getMessage(), "User with email " + email + " is already registered");
     }
 }

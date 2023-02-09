@@ -25,5 +25,4 @@ public class UserValidator extends Validator {
 		if (!matcher.matches())
 			this.validationHandler().append(new Error("Should be a valid e-mail!"));
 	}
-
 }

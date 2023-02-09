@@ -52,6 +52,7 @@ public class User extends Entity<UserID> {
 
 	public static User newUserWithId(final UserID id, final String name, final String email, final String password,
                                      final LocalDate birthDate, final Boolean isActive) {
+
 		final Instant now = Instant.now();
 		final Instant deletedAt = Boolean.TRUE.equals(isActive) ? null : now;
 		return new User(id, name, email, password, birthDate, isActive, now, now, deletedAt);

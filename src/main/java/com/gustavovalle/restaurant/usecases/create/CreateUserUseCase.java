@@ -2,9 +2,9 @@ package com.gustavovalle.restaurant.usecases.create;
 
 import com.gustavovalle.restaurant.domain.contracts.repository.UserRepository;
 import com.gustavovalle.restaurant.domain.entities.User;
+import com.gustavovalle.restaurant.domain.exceptions.DuplicatedEmail;
 import com.gustavovalle.restaurant.seedwork.UseCase;
 
-import java.util.Optional;
 
 public class CreateUserUseCase implements UseCase<CreateUserCommand, CreateUserOutput> {
     UserRepository userRepository;
@@ -13,11 +13,11 @@ public class CreateUserUseCase implements UseCase<CreateUserCommand, CreateUserO
     }
 
     @Override
-    public CreateUserOutput execute(CreateUserCommand command) throws Exception {
+    public CreateUserOutput execute(CreateUserCommand command) {
         User user = User.newUser(command.getName(), command.getEmail(), command.getPassword(), command.getBirthDate(), true);
 
         if (userRepository.findByEmail(user.getEmail()).isPresent()) {
-            throw new Exception("User Already Registered");
+            throw DuplicatedEmail.with(user.getEmail());
         }
 
         User savedUser = this.userRepository.save(user);

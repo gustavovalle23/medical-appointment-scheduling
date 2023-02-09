@@ -43,6 +43,7 @@ public class UserController {
 
 	@PostMapping("/user/authenticate")
 	public ResponseEntity<JwtToken> authenticate(@RequestBody @Valid LoginUser loginForm) throws Exception {
+		log.info("Request to /user/authenticate -> {}", loginForm);
 		UsernamePasswordAuthenticationToken login = loginForm.convert();
 
 		Authentication auth = authenticationService.authenticate(authenticationManager, login);
@@ -52,7 +53,7 @@ public class UserController {
 
 	@PostMapping("/user/save")
 	public ResponseEntity<CreateUserOutput> saveUser(@RequestBody @Valid CreateUserCommand input) throws Exception {
-		log.info("Request to save user with input: {}", input);
+		log.info("Request to save user with input -> {}", input);
 		CreateUserOutput output = createUserUseCase.execute(input);
 		return ResponseEntity.ok(output);
 	}
