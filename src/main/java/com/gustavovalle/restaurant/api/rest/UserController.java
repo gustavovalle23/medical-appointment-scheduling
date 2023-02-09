@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gustavovalle.restaurant.usecases.dtos.JwtToken;
-import com.gustavovalle.restaurant.usecases.dtos.LoginUser;
+import com.gustavovalle.restaurant.infra.dtos.JwtToken;
+import com.gustavovalle.restaurant.infra.dtos.LoginUser;
 import com.gustavovalle.restaurant.infra.gateways.services.security.AuthenticationService;
 import com.gustavovalle.restaurant.infra.gateways.services.security.TokenService;
 

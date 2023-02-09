@@ -1,4 +1,4 @@
-package com.gustavovalle.restaurant.usecases.dtos;
+package com.gustavovalle.restaurant.infra.dtos;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

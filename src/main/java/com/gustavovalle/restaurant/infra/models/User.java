@@ -3,7 +3,7 @@ package com.gustavovalle.restaurant.infra.models;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.gustavovalle.restaurant.usecases.dtos.UserDto;
+import com.gustavovalle.restaurant.infra.dtos.UserDto;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
