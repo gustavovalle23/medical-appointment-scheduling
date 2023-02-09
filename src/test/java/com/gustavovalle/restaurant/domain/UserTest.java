@@ -1,6 +1,7 @@
 package com.gustavovalle.restaurant.domain;
 
 import java.time.Instant;
+import java.time.LocalDate;
 
 import com.gustavovalle.restaurant.domain.entities.UserID;
 import org.junit.jupiter.api.Assertions;
@@ -20,7 +21,7 @@ public class UserTest {
 		final String name = "Test Name User";
 		final String email = "test@example";
 		final String password = "fakepassword";
-		final Instant birthDate = Instant.now();
+		final LocalDate birthDate = LocalDate.now();
 		final Boolean isActive = true;
 
 		final User user = User.newUserWithId(id, name, email, password, birthDate, isActive);
@@ -43,7 +44,7 @@ public class UserTest {
 		final String name = "Test Name User";
 		final String email = "emailinvalido@gmail.c";
 		final String password = "fakepassword";
-		final Instant birthDate = Instant.now();
+		final LocalDate birthDate = LocalDate.now();
 		final Boolean isActive = true;
 
 		final User user = User.newUserWithId(id, name, email, password, birthDate, isActive);

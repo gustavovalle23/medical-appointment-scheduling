@@ -1,7 +1,7 @@
 package com.gustavovalle.restaurant.usecases.create;
 
 import javax.validation.constraints.NotNull;
-import java.time.Instant;
+import java.time.LocalDate;
 
 public class CreateUserCommand {
     @NotNull(message = "name is required")
@@ -14,10 +14,10 @@ public class CreateUserCommand {
     private final String password;
 
     @NotNull(message = "Birth date is required!")
-    private final Instant birthDate;
+    private final LocalDate birthDate;
 
 
-    public CreateUserCommand(String name, String email, String password, Instant birthDate) {
+    public CreateUserCommand(String name, String email, String password, LocalDate birthDate) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -28,7 +28,7 @@ public class CreateUserCommand {
         return name;
     }
 
-    public Instant getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 

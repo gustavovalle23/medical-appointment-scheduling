@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gustavovalle.restaurant.usecases.dtos.CreateUser;
 import com.gustavovalle.restaurant.usecases.dtos.JwtToken;
 import com.gustavovalle.restaurant.usecases.dtos.LoginUser;
 import com.gustavovalle.restaurant.infra.gateways.services.security.AuthenticationService;
@@ -52,10 +51,9 @@ public class UserController {
 	}
 
 	@PostMapping("/user/save")
-	public ResponseEntity<CreateUserOutput> saveUser(@RequestBody @Valid CreateUser input) throws Exception {
+	public ResponseEntity<CreateUserOutput> saveUser(@RequestBody @Valid CreateUserCommand input) throws Exception {
 		log.info("Request to save user with input: {}", input);
-		CreateUserCommand command = new CreateUserCommand(input.getName(), input.getEmail(), input.getPassword(), input.getBirthDate());
-		CreateUserOutput output = createUserUseCase.execute(command);
+		CreateUserOutput output = createUserUseCase.execute(input);
 		return ResponseEntity.ok(output);
 	}
 }

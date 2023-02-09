@@ -1,5 +1,6 @@
 package com.gustavovalle.restaurant.usecases.dtos;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class UserDto {
@@ -7,9 +8,9 @@ public class UserDto {
 	private String name;
 	private String email;
 	private String password;
-	private LocalDateTime birthDate;
+	private LocalDate birthDate;
 
-	public UserDto(Long id, String name, String email, String password, LocalDateTime birthDate) {
+	public UserDto(Long id, String name, String email, String password, LocalDate birthDate) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
@@ -41,11 +42,11 @@ public class UserDto {
 		this.password = password;
 	}
 
-	public LocalDateTime getBirthDate() {
+	public LocalDate getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(LocalDateTime birthDate) {
+	public void setBirthDate(LocalDate birthDate) {
 		this.birthDate = birthDate;
 	}
 

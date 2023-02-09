@@ -13,14 +13,14 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
 
 @Entity(name = "users")
 public class User implements UserDetails {
 
-	public User(String name, String email, String password, LocalDateTime birthDate) {
+	public User(String name, String email, String password, LocalDate birthDate) {
 		this.name = name;
 		this.email = email;
 		this.password = password;
@@ -45,17 +45,17 @@ public class User implements UserDetails {
 
 	@NotNull(message = "Birth date is required!")
 	@Column(name = "birth_date")
-	private LocalDateTime birthDate;
+	private LocalDate birthDate;
 
 	@NotNull
 	@ManyToMany
 	private List<Profile> profiles;
 
-	public LocalDateTime getBirthDate() {
+	public LocalDate getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(LocalDateTime birthDate) {
+	public void setBirthDate(LocalDate birthDate) {
 		this.birthDate = birthDate;
 	}
 

@@ -20,7 +20,8 @@ public class CreateUserUseCase implements UseCase<CreateUserCommand, CreateUserO
             throw new Exception("User Already Registered");
         }
 
-        Optional<User> savedUser = this.userRepository.save(user);
-        return savedUser.map(value -> CreateUserOutput.with(value.getName())).orElse(null);
+        User savedUser = this.userRepository.save(user);
+
+        return CreateUserOutput.with(savedUser.getId().getValue(), savedUser.getName());
     }
 }

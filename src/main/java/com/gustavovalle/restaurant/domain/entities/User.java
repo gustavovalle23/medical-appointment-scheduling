@@ -1,6 +1,7 @@
 package com.gustavovalle.restaurant.domain.entities;
 
 import java.time.Instant;
+import java.time.LocalDate;
 import java.util.Objects;
 
 import com.gustavovalle.restaurant.domain.Entity;
@@ -10,13 +11,13 @@ public class User extends Entity<UserID> {
     private String name;
     private final String email;
     private final String password;
-    private final Instant birthDate;
+    private final LocalDate birthDate;
     private boolean active;
     private final Instant createdAt;
     private Instant updatedAt;
     private Instant deletedAt;
 
-    private User(String name, String email, String password, Instant birthDate, boolean active,
+    private User(String name, String email, String password, LocalDate birthDate, boolean active,
                  Instant createdAt, Instant updatedAt, Instant deletedAt) {
         super(new UserID(Long.parseLong("0")));
         this.name = name;
@@ -29,7 +30,7 @@ public class User extends Entity<UserID> {
         this.deletedAt = deletedAt;
     }
 
-    private User(UserID id, String name, String email, String password, Instant birthDate, boolean active,
+    private User(UserID id, String name, String email, String password, LocalDate birthDate, boolean active,
                  Instant createdAt, Instant updatedAt, Instant deletedAt) {
         super(id);
         this.name = name;
@@ -43,14 +44,14 @@ public class User extends Entity<UserID> {
     }
 
     public static User newUser(final String name, final String email, final String password,
-                               final Instant birthDate, final Boolean isActive) {
+                               final LocalDate birthDate, final Boolean isActive) {
         final Instant now = Instant.now();
         final Instant deletedAt = Boolean.TRUE.equals(isActive) ? null : now;
         return new User(name, email, password, birthDate, isActive, now, now, deletedAt);
     }
 
 	public static User newUserWithId(final UserID id, final String name, final String email, final String password,
-							   final Instant birthDate, final Boolean isActive) {
+                                     final LocalDate birthDate, final Boolean isActive) {
 		final Instant now = Instant.now();
 		final Instant deletedAt = Boolean.TRUE.equals(isActive) ? null : now;
 		return new User(id, name, email, password, birthDate, isActive, now, now, deletedAt);
@@ -102,7 +103,7 @@ public class User extends Entity<UserID> {
         return password;
     }
 
-    public Instant getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
