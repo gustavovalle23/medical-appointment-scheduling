@@ -1,6 +1,7 @@
 package com.gustavovalle.restaurant.usecases.login;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
+
 
 public class LoginCommand {
     @NotNull

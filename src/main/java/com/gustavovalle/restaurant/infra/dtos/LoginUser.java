@@ -1,8 +1,8 @@
 package com.gustavovalle.restaurant.infra.dtos;
 
+import jakarta.validation.constraints.NotNull;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
-import javax.validation.constraints.NotNull;
 
 public class LoginUser {
 	@NotNull(message = "Email is required")

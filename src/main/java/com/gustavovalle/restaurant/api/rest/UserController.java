@@ -3,6 +3,7 @@ package com.gustavovalle.restaurant.api.rest;
 import com.gustavovalle.restaurant.usecases.create.CreateUserCommand;
 import com.gustavovalle.restaurant.usecases.create.CreateUserOutput;
 import com.gustavovalle.restaurant.usecases.create.CreateUserUseCase;
+import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,6 @@ import com.gustavovalle.restaurant.infra.dtos.LoginUser;
 import com.gustavovalle.restaurant.infra.gateways.services.security.AuthenticationService;
 import com.gustavovalle.restaurant.infra.gateways.services.security.TokenService;
 
-import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1")

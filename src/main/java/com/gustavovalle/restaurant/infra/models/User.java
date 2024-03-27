@@ -1,17 +1,11 @@
 package com.gustavovalle.restaurant.infra.models;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.gustavovalle.restaurant.infra.dtos.UserDto;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.validation.constraints.NotNull;
 
 import java.time.LocalDate;
 import java.util.Collection;
